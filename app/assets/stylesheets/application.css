@@ -11,3 +11,11 @@
  *= require_self
  *= require_tree .
 */
+
+#container{
+	padding-top: 80px;
+}
+
+.nav .submit:hover{
+	text-decoration: underline;
+}
