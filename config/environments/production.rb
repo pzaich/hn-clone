@@ -64,4 +64,7 @@ HnClone::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  
+  # Devise specific
+  config.action_mailer.default_url_options = { :host => 'ec2-23-23-183-144.compute-1.amazonaws.com' }
 end
