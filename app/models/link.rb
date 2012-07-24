@@ -1,6 +1,8 @@
 class Link < ActiveRecord::Base
   attr_accessible :url, :title
   belongs_to :user
+  has_many :votes, :as => :voteable
+  has_many :comments, :as => :commentable
 
   before_validation { |link| link.url = check_for_http(self.url.downcase) }
 
