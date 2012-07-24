@@ -1,5 +1,6 @@
 class Link < ActiveRecord::Base
   attr_accessible :url, :title
+  belongs_to :user
 
   before_validation { |link| link.url = check_for_http(self.url.downcase) }
 
