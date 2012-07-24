@@ -1,4 +1,5 @@
 class LinksController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
 
 	def index
 	  @links = Kaminari::paginate_array(Link.find(:all)).page(params[:page]).per(10)
@@ -20,5 +21,19 @@ class LinksController < ApplicationController
 
 	def show
 	end
+	
+	def edit
+	  @link = current_user.links.find(params[:id])
+  end
+  
+  def update
+    @link = current_user.links.find(params[:id])
+    if @link.update_attributes(params[:link])
+      flash[:messages] = "Your submission has been edited!"
+      redirect_to root_path
+    else
+      render :edit
+    end    
+  end
 
 end
