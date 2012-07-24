@@ -11,24 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120724181212) do
+ActiveRecord::Schema.define(:version => 20120724215651) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id"
     t.text     "reply"
     t.integer  "user_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "commentable_type"
   end
 
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
-
-  create_table "karmas", :force => true do |t|
-    t.integer  "user_id"
-    t.float    "total",      :default => 0.0, :null => false
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
-  end
 
   create_table "links", :force => true do |t|
     t.string   "url"
@@ -53,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20120724181212) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.integer  "karma_points",           :default => 0,  :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -61,8 +56,9 @@ ActiveRecord::Schema.define(:version => 20120724181212) do
   create_table "votes", :force => true do |t|
     t.integer  "voteable_id"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "voteable_type"
   end
 
   add_index "votes", ["voteable_id"], :name => "index_votes_on_voteable_id"
