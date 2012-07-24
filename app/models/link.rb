@@ -11,5 +11,4 @@ class Link < ActiveRecord::Base
 	def check_for_http(url)
 	  (/(^http:\/\/|^https:\/\/)/ =~ url).nil? ? url.prepend('http://') : url
 	end
-
 end
