@@ -9,7 +9,7 @@ class LinksController < ApplicationController
 	end
 
 	def create
-	  @link = Link.new(params[:link])
+	  @link = current_user.links.new(params[:link])
     if @link.save
       flash[:messages] = "Thank you for your submission!"
       redirect_to root_path
