@@ -20,10 +20,17 @@ class LinksController < ApplicationController
 	end
 
 	def show
+	  @link = Link.find(params[:id])
+	  @comment = Comment.new
+	  @commentable = @link
 	end
 	
 	def edit
-	  @link = current_user.links.find(params[:id])
+	  
+	  @link = Link.find(params[:id])
+    if current_user.id != @link.user_id
+	    redirect_to root_path, :alert => "You are not authorized to edit that page"
+    end
   end
   
   def update

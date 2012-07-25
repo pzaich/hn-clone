@@ -1,7 +1,14 @@
 HnClone::Application.routes.draw do
   devise_for :users
-
-  resources :links, :users
+  resources :users
+  
+  resources :links do
+    resources :comments
+  end
+  
+  resources :comments do
+    resources :comments
+  end
   
   root to: 'links#index'
   

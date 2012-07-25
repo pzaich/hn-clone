@@ -66,6 +66,8 @@ GEM
     orm_adapter (0.4.0)
     pg (0.14.0)
     polyglot (0.3.3)
+    quiet_assets (1.0.1)
+      railties (~> 3.1)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -122,6 +124,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   pg (= 0.14.0)
+  quiet_assets
   rails (= 3.2.3)
   sass-rails (~> 3.2.3)
   sqlite3
