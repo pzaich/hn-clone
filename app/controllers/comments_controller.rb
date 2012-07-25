@@ -6,9 +6,9 @@ class CommentsController < ApplicationController
   
   def create
     @comment = @commentable.comments.new(params[:comment])
-    link = @comment.find_parent_link
-    if @comment.save 
-      redirect_to "#{link}", messages: "Comment Created"
+    @link_id = @comment.find_parent_link
+    if @comment.save
+      redirect_to "/links/#{@link_id}", messages: "Comment Created"
     else 
       render :new 
     end
