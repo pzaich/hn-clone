@@ -1,0 +1,12 @@
+	<li><%= comment.reply %><%= link_to "New Comment", [ :comment, comment] %></li>
+<%	unless comment.comments.empty? %>
+<%		comment.comments.each do |comment| %>
+		<ul>
+			<%= render 'comments/comments', :comment => comment %>
+		</ul>
+	<% end %>
+<% end %>
+
+
+
+
