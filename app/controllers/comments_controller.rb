@@ -8,10 +8,10 @@ class CommentsController < ApplicationController
   end
   
   def create
-    @comment = @commentable.comments.new(params[:comment].merge(:user_id => current_user))
-    @link_id = @comment.find_parent_link
+    warn params
+    @comment = @commentable.comments.new(params[:comment].merge(:user_id => current_user, :link_id => find_link_id))
     if @comment.save
-      redirect_to "/links/#{@link_id}", messages: "Comment Created"
+      redirect_to link_path(@comment.link_id), messages: "Comment Created"
     else 
       render :new 
     end
@@ -33,7 +33,9 @@ class CommentsController < ApplicationController
         @commentable = Link.find(params[:link_id])
       end
     end
-    
-    
-  
+
+    def find_link_id
+      params[:comment_id] ? @commentable.link_id : @commentable.id
+    end
+     
 end
