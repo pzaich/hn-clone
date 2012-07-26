@@ -11,6 +11,6 @@ class Link < ActiveRecord::Base
   validates_format_of :url, :with => /(^http:\/\/|^https:\/\/)[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?$/
 
 	def check_for_http(url)
-	  (/(^http:\/\/|^https:\/\/)/ =~ url).nil? ? url.unshift('http://') : url
+	  (/(^http:\/\/|^https:\/\/)/ =~ url).nil? ? url.to_s.prepend('http://') : url
 	end
 end
