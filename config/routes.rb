@@ -4,10 +4,12 @@ HnClone::Application.routes.draw do
   
   resources :links do
     resources :comments
+    resources :votes
   end
   
   resources :comments do
     resources :comments
+    resources :votes
   end
   
   root to: 'links#index'

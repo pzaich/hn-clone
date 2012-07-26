@@ -9,7 +9,9 @@ class Vote < ActiveRecord::Base
   validate :not_the_author
   
   def not_the_author
-    errors.add :user_id, "is the author" if voteable.user_id == user
+    if voteable.user_id == user_id
+      errors.add(:user_id, "is the author")
+    end
   end
   
 

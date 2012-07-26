@@ -15,7 +15,7 @@ class Link < ActiveRecord::Base
 	end
 
   def total_votes
-    Vote.sum(:value)
+    self.votes.sum(:value)
   end
   
   def self.by_votes
