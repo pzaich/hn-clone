@@ -6,7 +6,7 @@ class Comment < ActiveRecord::Base
   has_many :votes, :as => :voteable
   
   def total_votes
-    Vote.sum(:value)
+    self.votes.sum(:value)
   end
   
   def self.by_votes

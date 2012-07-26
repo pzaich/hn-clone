@@ -8,7 +8,8 @@ class CommentsController < ApplicationController
   end
   
   def create
-    @comment = @commentable.comments.new(params[:comment].merge(:user_id => current_user, :link_id => find_link_id))
+ 
+    @comment = @commentable.comments.new(params[:comment].merge(:user_id => current_user.id, :link_id => find_link_id))
     if @comment.save
       redirect_to link_path(@comment.link_id), messages: "Comment Created"
     else 
