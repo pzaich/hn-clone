@@ -22,11 +22,13 @@
 					Logged in as <strong><%= current_user.email %></strong>
 					<li><%= link_to 'Edit profile', edit_user_registration_path %></li>
 					<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+					<li><%= current_user.karma_points %> Karma Points</li>
 				<% else %>
 					<li><%= link_to "Sign up", new_user_registration_path %></li>
 					<li><%= link_to "Login", new_user_session_path %></li>
 				<% end %>
 				<li class="active submit"><%= link_to "Submit", new_link_path %></li>
+			</ul>
 			</div>
 			
     </div>
