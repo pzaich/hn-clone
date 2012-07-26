@@ -1,3 +1,29 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.comment-list{
+	list-style: none;
+}
+
+.comment-list li{
+	padding: 10px;
+	background-color: #fafafa;
+}
+
+.respond-list li{
+	margin:10px;
+	background-color: #fefefe;
+	border: 1px solid #fcfcfc;
+}
+
+.respond-list{
+	list-style:none;
+}
+
+.new{
+	display:block;
+	padding: 0;
+
+}

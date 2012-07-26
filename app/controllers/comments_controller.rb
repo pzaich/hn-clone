@@ -1,11 +1,14 @@
 class CommentsController < ApplicationController
   before_filter :load_commentable
+  before_filter :authenticate_user!, except: [:index, :show]
+
+
   def new
     @comment = @commentable.comments.new
   end
   
   def create
-    @comment = @commentable.comments.new(params[:comment])
+    @comment = @commentable.comments.new(params[:comment].merge(:user_id => current_user))
     @link_id = @comment.find_parent_link
     if @comment.save
       redirect_to "/links/#{@link_id}", messages: "Comment Created"
