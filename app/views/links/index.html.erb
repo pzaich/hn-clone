@@ -18,7 +18,7 @@
 	<tr>
 		<td><%= link_to article.title, article  %></td>
 		<td><%= link_to article.url, article.url %></td>
-		<td><%= article.id %></td>
+		<td><%= article.user.username %></td>
 		<td><%= link_to "New Comment", [ :new, article, :comment] %>
 	</tr>
 <% end %>
