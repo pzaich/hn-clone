@@ -4,12 +4,17 @@ class Comment < ActiveRecord::Base
   belongs_to :commentable, :polymorphic => true
   has_many :comments, :as => :commentable
   has_many :votes, :as => :voteable
+  
   def find_parent_link
     if self.commentable_type == "Comment"
       Comment.find(commentable_id).find_parent_link
     else
       @link_id_num = commentable_id
     end
+  end
+  
+  def total_votes
+    
   end
   
 end
