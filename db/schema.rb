@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120726032939) do
+ActiveRecord::Schema.define(:version => 20120726061158) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20120726032939) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.string   "commentable_type"
+    t.string   "link_id"
   end
 
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
