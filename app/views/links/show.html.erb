@@ -1,7 +1,7 @@
 <h2><%= link_to @link.title, @link.url %></h2>
 
 <%= render "comments/form" %>
-<ul>
+<ul class="comment-list">
 <%	@link.comments.each do |comment|	%>
 	<%= render "comments/comments", :comment => comment %>
 <% end %>

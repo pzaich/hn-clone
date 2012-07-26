@@ -1,7 +1,9 @@
-	<li><%= comment.reply %><%= link_to "New Comment", [ :comment, comment] %></li>
+	<li><h4><%= comment.user.email %></h4><%= comment.reply %>
+		<%= link_to "New Comment", [ :comment, comment], :class => "new" %></
+	</li>
 <%	unless comment.comments.empty? %>
 <%		comment.comments.each do |comment| %>
-		<ul>
+		<ul class="respond-list">
 			<%= render 'comments/comments', :comment => comment %>
 		</ul>
 	<% end %>
