@@ -25,12 +25,12 @@ class LinksController < ApplicationController
 	  @commentable = @link
 	end
 	
-	def edit
-	  
+	def edit  
 	  @link = Link.find(params[:id])
     if current_user.id != @link.user_id
 	    redirect_to root_path, :alert => "You are not authorized to edit that page"
     end
+    redirect_to root_path, :alert => "Editing time has expired." if @link.unmodifiable?
   end
   
   def update

@@ -24,4 +24,8 @@ class Link < ActiveRecord::Base
     order('votes desc')
   end
 
+  def unmodifiable?
+    Time.now - self.created_at > 900
+  end
+
 end
