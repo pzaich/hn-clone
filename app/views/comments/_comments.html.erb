@@ -1,4 +1,4 @@
-	<li><h4><%= comment.user.email %></h4><%= comment.reply %>
+	<li><h4><%= comment.user.username %></h4><%= comment.reply %>
 		<%= link_to "New Comment", [ :comment, comment], :class => "new" %></
 	</li>
 <%	unless comment.comments.empty? %>

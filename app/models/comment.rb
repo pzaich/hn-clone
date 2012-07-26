@@ -13,4 +13,8 @@ class Comment < ActiveRecord::Base
     end
   end
   
+  def total_votes
+    
+  end
+  
 end

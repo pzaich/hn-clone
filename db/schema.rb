@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120724215651) do
+ActiveRecord::Schema.define(:version => 20120726032939) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20120724215651) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.integer  "karma_points",           :default => 0,  :null => false
+    t.string   "username",               :default => "", :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -59,8 +60,10 @@ ActiveRecord::Schema.define(:version => 20120724215651) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.string   "voteable_type"
+    t.integer  "value"
   end
 
+  add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
   add_index "votes", ["voteable_id"], :name => "index_votes_on_voteable_id"
 
 end
