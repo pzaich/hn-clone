@@ -7,7 +7,9 @@ class VotesController < ApplicationController
   
 
   def create
-    @vote = @voteable.votes.new({:value => params[:value], :voteable_id => params[:link_id]}.merge(:user_id => current_user))
+    new_params = {:value => params[:value], :voteable_id => params[:link_id], :user_id => current_user.id}
+    @vote = @voteable.votes.new(new_params)
+    warn params
     if @vote.save
       redirect_to :back, messages: "Thank you for voting"
     else 
@@ -23,18 +25,7 @@ class VotesController < ApplicationController
         @voteable = Link.find(params[:link_id])
       end
     end
-    # 
-    # def voted?
-    #   @voteable.votes.each do |vote|
-    #     redirect_to :back if vote.user == @vote.user 
-    #   end
-    # end
-    
-    # def author?
-    #   
-    #   redirect_to :back, :alert => "You cannot vote for your own article" if @vote.user_id == current_user
-    # end
-    # 
+
 
 
 end

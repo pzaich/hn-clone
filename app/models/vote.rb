@@ -4,15 +4,11 @@ class Vote < ActiveRecord::Base
   belongs_to :user
   belongs_to :voteable, :polymorphic => true
   
-  validates_uniqueness_of :voteable_id, :scope => :user_id
+  validates_uniqueness_of :user_id, :scope => [:voteable_id, :voteable_type]
   validates_inclusion_of :value, :in => [1, -1]
-  validate :not_the_author
+  before_save :not_the_author
   
   def not_the_author
-    if voteable.user_id == user_id
-      errors.add(:user_id, "is the author")
-    end
+    self.voteable.user_id != self.user_id
   end
-  
-
 end
