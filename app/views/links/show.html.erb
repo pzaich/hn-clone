@@ -1,5 +1,5 @@
 <h2><%= link_to @link.title, @link.url %></h2>
-
+<%= link_to "Edit", edit_link_path(@link) if current_user == @link.user && !@link.unmodifiable? %>
 <%= render "comments/form" %>
 <ul class="comment-list">
 <%	@link.comments.each do |comment|	%>
