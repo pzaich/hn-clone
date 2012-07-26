@@ -13,4 +13,15 @@ class Link < ActiveRecord::Base
 	def check_for_http(url)
 	  (/(^http:\/\/|^https:\/\/)/ =~ url).nil? ? url = 'http://' + url : url
 	end
+
+  def total_votes
+    Vote.sum(:value)
+  end
+  
+  def self.by_votes
+    select('links.*, coalesce(value, 0) as votes').
+    joins('left join voteables on link_id=links.id').
+    order('votes desc')
+  end
+
 end

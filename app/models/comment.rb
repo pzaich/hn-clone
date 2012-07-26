@@ -14,7 +14,13 @@ class Comment < ActiveRecord::Base
   end
   
   def total_votes
-    
+    Vote.sum(:value)
+  end
+  
+  def self.by_votes
+    select('comments.*, coalesce(value, 0) as votes').
+    joins('left join voteables on comment_id=comments.id').
+    order('votes desc')
   end
   
 end
