@@ -2,7 +2,7 @@
 		<table>
 			<tr>
 				<td><%= comment.total_votes %></td>
-				<td><%= link_to "Up",  comment_votes_path(comment, :value => 1), :method => :post%> <%= link_to "Down", comment_votes_path(comment, :value => -1), :method => :post %></td>
+				<td><%= link_to "Up",  comment_votes_path(comment, :value => 1), :method => :post%> <%= down_vote_link(comment) %></td>
 				<td><%= comment.user.username %></td></h4>
 				<td><%= link_to "New Comment", [ :comment, comment], :class => "new" %></td>
 			</tr>

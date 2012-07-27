@@ -22,7 +22,7 @@
 	</thead>
 <% @links.each_with_index do |article|%>
 	<tr>
-		<td><%= link_to "Up",  link_votes_path(article, :value => 1), :method => :post%> <%= link_to "Down", link_votes_path(article, :value => -1), :method => :post %> </td>
+		<td><%= link_to "Up",  link_votes_path(article, :value => 1), :method => :post%> <%= down_vote_link(article) %>  </td>
 		<td><%= article.total_votes %></td>
 		<td><%= link_to article.title, article  %></td>
 		<td><%= link_to article.url, article.url %></td>
