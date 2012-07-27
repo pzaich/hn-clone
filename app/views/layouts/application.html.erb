@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HnClone</title>
+  <title>Hacker News Clown</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -16,34 +16,16 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-    	<a class="brand" href="<%= root_path %>">DBC</a>
-		  <ul class="nav pull-right">
-				<% if user_signed_in? %>
-					Logged in as <strong><%= current_user.email %></strong>
-					<li><%= link_to 'Edit profile', edit_user_registration_path %></li>
-					<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-					<li><%= current_user.karma_points %> Karma Points</li>
-				<% else %>
-					<li><%= link_to "Sign up", new_user_registration_path %></li>
-					<li><%= link_to "Login", new_user_session_path %></li>
-				<% end %>
-				<li class="active submit"><%= link_to "Submit", new_link_path %></li>
-			</ul>
+    	<a class="brand" href="<%= root_path %>">HNClown</a>
+		 	<%= render 'shared/nav' %>
 			</div>
 			
     </div>
   </div>
 </div>
 
-<div id="container">
-		
-		
-	<%= render :partial => 'shared/flash', :locals => { :flash => flash } %>
-		
-		
-		
-		
-
+<div class="container-fluid">
+		<%= render :partial => 'shared/flash', :locals => { :flash => flash } %>
 		<%= yield %>
 	</div>
 </body>
