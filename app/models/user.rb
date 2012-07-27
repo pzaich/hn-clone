@@ -9,9 +9,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :karma_points, :username
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :karma_points, :username, :role
   validates_presence_of :username
   validates_uniqueness_of :username
+  
+  ROLES = %w[admin user banned hell_banned]
   
   # attr_accessible :title, :body
 end
