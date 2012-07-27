@@ -12,10 +12,9 @@
 
 </head>
 <body>
-
-<div class="navbar navbar-fixed-top">
+<div class="navbar navbar-fixed-top ">
   <div class="navbar-inner">
-    <div class="container">
+    <div class="container-fluid">
     	<a class="brand" href="<%= root_path %>">HNClown</a>
 		 	<%= render 'shared/nav' %>
 			</div>
@@ -23,7 +22,8 @@
   </div>
 </div>
 
-<div class="container-fluid">
+
+<div class="container-fluid body">
 		<%= render :partial => 'shared/flash', :locals => { :flash => flash } %>
 		<%= yield %>
 	</div>
