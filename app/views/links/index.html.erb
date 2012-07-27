@@ -20,6 +20,7 @@
 			</td>
 		</tr>
 	</thead>
+
 <% @links.each_with_index do |article|%>
 	<tr>
 		<td><%= link_to "Up",  link_votes_path(article, :value => 1), :method => :post%> <%= down_vote_link(article) %>  </td>

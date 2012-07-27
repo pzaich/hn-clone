@@ -2,8 +2,10 @@ class LinksController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
 	def index
-	  @links = Kaminari::paginate_array(Link.find(:all)).page(params[:page]).per(10)
+	  @links = Kaminari::paginate_array(sort_by_votes_desc).page(params[:page]).per(10)
 	end
+	
+	
 
 	def new
 	  @link = Link.new
@@ -41,6 +43,12 @@ class LinksController < ApplicationController
     else
       render :edit
     end    
+  end
+  
+  private
+  
+  def sort_by_votes_desc
+    (Link.find(:all).sort_by{|link| link.total_votes }).reverse
   end
 
 end
