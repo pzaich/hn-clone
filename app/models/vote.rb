@@ -18,7 +18,9 @@ class Vote < ActiveRecord::Base
   end
 
   def remove_karma
-  	self.voteable.user.decrement!(:karma_points) unless self.voteable.user.karma_points == 0
+    if self.user.karma_points > 99 
+  	 self.voteable.user.decrement!(:karma_points) unless self.voteable.user.karma_points == 0
+    end
   end
 
   def give_karma

@@ -28,7 +28,7 @@
 		<td><%= link_to article.title, article  %></td>
 		<td><%= link_to article.url, article.url %></td>
 		<td><%= article.user.username %></td>
-		<td><%= link_to "New Comment", [ :new, article, :comment] %>
+		<td><%= link_to "New Comment", new_link_comment_path(article) %>
 	</tr>
 <% end %>
 </table>
