@@ -1,3 +1,4 @@
+
 <% if article.visible == 'visible' || (current_user.role == 'hell_banned' && article.user_id == current_user.id) %>
 	<tr>
 		<% unless article.votes.map{|vote| vote.user_id}.include?(current_user) %>
@@ -10,3 +11,4 @@
 		<td><%= link_to "New Comment", new_link_comment_path(article) %>
 	</tr>
 <% end %>
+

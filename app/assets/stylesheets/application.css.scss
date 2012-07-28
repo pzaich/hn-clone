@@ -14,10 +14,18 @@
 
 @import 'bootstrap';
 
-.container-fluid{
+.body.container-fluid{
 	padding-top: 80px;
 }
 
 .nav .submit:hover{
 	text-decoration: underline;
+}
+
+textarea {
+	height: 200px;
+}
+
+.brand{
+	color: #fff !important
 }

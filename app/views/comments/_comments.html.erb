@@ -2,9 +2,9 @@
 		<table>
 			<tr>
 				<td><%= comment.total_votes %></td>
-				<td><%= link_to "Up",  comment_votes_path(comment, :value => 1), :method => :post%> <%= down_vote_link(comment) %></td>
+				<td><%= link_to "",  comment_votes_path(comment, :value => 1), :method => :post, :class => "icon-arrow-up" %> <%= down_vote_link(comment) %></td>
 				<td><%= comment.user.username %></td></h4>
-				<td><%= link_to "New Comment", new_comment_comment_path(comment), :class => "new" %></td>
+				<td><i class="icon-comment"></i>  <%= link_to "New Comment", new_comment_comment_path(comment) %></td>
 			</tr>
 			<tr><%= comment.reply %></tr>
 		</table>
