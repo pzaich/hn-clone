@@ -10,9 +10,9 @@
  *
  *= require_self
  *= require_tree .
+ *= require_bootstrap
 */
 
-@import 'bootstrap';
 
 .body.container-fluid{
 	padding-top: 80px;
