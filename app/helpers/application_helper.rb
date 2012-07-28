@@ -6,6 +6,10 @@ module ApplicationHelper
 	end
 
 	def up_vote_link(voteable)
-		link_to "",  link_votes_path(voteable, :value => 1), :method => :post, :class => "icon-arrow-up" if user_signed_in?
+	  if user_signed_in?
+		  if article.votes.map{|vote| vote.user_id}.include?(current_user.id)
+		    link_to "",  link_votes_path(voteable, :value => 1), :method => :post, :class => "icon-arrow-up"
+	    end
+    end
 	end
 end

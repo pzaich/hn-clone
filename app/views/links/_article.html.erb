@@ -1,14 +1,12 @@
 
-<% if article.visible == 'visible' || (current_user.role == 'hell_banned' && article.user_id == current_user.id) %>
+
 	<tr>
-		<% unless article.votes.map{|vote| vote.user_id}.include?(current_user) %>
-			<td><%= up_vote_link(article) %> <%= down_vote_link(article) %>  </td>
-		<% end %>
+		<td><%= up_vote_link(article) %> <%= down_vote_link(article) %>  </td>
 		<td><%= article.total_votes %></td>
 		<td><%= link_to article.title, article  %></td>
 		<td><%= link_to article.url, article.url %></td>
 		<td><%= article.user.username %></td>
 		<td><%= link_to "New Comment", new_link_comment_path(article) %>
 	</tr>
-<% end %>
+
 

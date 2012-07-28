@@ -2,7 +2,12 @@
 		<table>
 			<tr>
 				<td><%= comment.total_votes %></td>
-				<td><%= link_to "",  comment_votes_path(comment, :value => 1), :method => :post, :class => "icon-arrow-up" %> <%= down_vote_link(comment) %></td>
+				<% if comment.votes.map{|vote| vote.user_id}.include?(current_user.id) %>
+					<td><%= link_to "",  comment_votes_path(comment, :value => 1), :method => :post, :class => "icon-arrow-up" %> <%= down_vote_link(comment) %></td>
+				<% else %>
+					<td></td>
+				<% end %>
+				
 				<td><%= comment.user.username %></td></h4>
 				<td><i class="icon-comment"></i>  <%= link_to "New Comment", new_comment_comment_path(comment) %></td>
 			</tr>
