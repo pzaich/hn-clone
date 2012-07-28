@@ -5,6 +5,9 @@ class Comment < ActiveRecord::Base
   has_many :comments, :as => :commentable
   has_many :votes, :as => :voteable
   
+  validates :reply, :presence => true
+
+
   def total_votes
     self.votes.sum(:value)
   end

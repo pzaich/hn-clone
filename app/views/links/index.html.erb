@@ -22,16 +22,7 @@
 	</thead>
 
 <% @links.each_with_index do |article|%>
-
-	<tr>
-		<td><%= link_to "Up",  link_votes_path(article, :value => 1), :method => :post%> <%= down_vote_link(article) %>  </td>
-		<td><%= article.total_votes %></td>
-		<td><%= link_to article.title, article  %></td>
-		<td><%= link_to article.url, article.url %></td>
-		<td><%= article.user.username %></td>
-		<td><%= link_to "New Comment", new_link_comment_path(article) %>
-	</tr>
-
+	<%= render :partial => 'article', :locals => {:article => article} %>
 <% end %>
 </table>
 <%= paginate @links %>
