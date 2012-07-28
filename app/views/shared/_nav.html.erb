@@ -8,11 +8,11 @@
 	    <b class="caret"></b>
 			</a>
 			<ul class="dropdown-menu">
-				<li>Logged in as <strong><%= current_user.email %></strong></li>
+				<li><a href="#"><strong><%= current_user.email %></strong></a></li>
 				<li><%= link_to 'Edit profile', edit_user_registration_path %></li>
 				<li class="divider"></li>
 				<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-				<li><%= current_user.karma_points %> Karma Points</li>
+				<li><a href="#"><i class="icon-heart"></i><%= current_user.karma_points %> Karma Points</a></li>
 		</ul>
 	</li>
 	<% else %>
