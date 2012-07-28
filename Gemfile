@@ -6,6 +6,7 @@ gem 'kaminari'
 gem 'cancan'
 gem 'bootstrap-sass', '~> 2.0.4.0'
 gem 'sass-rails', '~> 3.1'
+gem 'coffee-rails', '~> 3.2.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -24,7 +25,7 @@ end
 # in production environments by default.
 group :assets do
 
-  gem 'coffee-rails', '~> 3.2.1'
+  
 
 
 
