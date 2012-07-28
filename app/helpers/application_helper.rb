@@ -7,8 +7,8 @@ module ApplicationHelper
 
 	def up_vote_link(voteable)
 	  if user_signed_in?
-		  if voteable.votes.map{|vote| vote.user_id}.include?(current_user.id)
-		    link_to "",  link_votes_path(voteable, :value => 1), :method => :post, :class => "icon-arrow-up", :remote => true
+		  unless voteable.votes.map{|vote| vote.user_id}.include?(current_user.id)
+		    link_to "",  link_votes_path(voteable, :value => 1), :method => :post, :class => "icon-arrow-up"
 	    end
     end
 	end
